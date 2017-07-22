@@ -5,7 +5,9 @@ var arr = [10,20,30];
 //Create a function named 'first' that is given 'arr' as the argument and  returns the first item in the given array.
 
   //Code Here
-
+function first(arr) {
+  return arr[0];
+};
 
 //Next problem
 
@@ -14,7 +16,9 @@ var arr = [10,20,30];
 var arr = [40,50,60];
 //Create a function named 'last' that is given 'arr' as the argument and returns the last item in the given array.
 
-
+function last(arr) {
+  return arr[arr.length-1];
+}
   //Code Here
 
 
@@ -23,7 +27,9 @@ var arr = [40,50,60];
 
 var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 //Create a function named 'looper' that is given family as it's only argument, loops through the given array, and alerts every item in the array.
-
+function looper(family) {
+  family.map((x)=> console.log(x));
+}
   //Code Here
 
 
@@ -33,7 +39,10 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 
 var letters = ['A', 'B', 'C', 'D', 'E'];
 //Write a function called reversedLooper that is given letters as it's only argument and loops through the given array backwards alerting every item in the array starting at the end.
-
+function reversedLooper(letters) {
+  letters.reverse().map((x)=> alert(x));
+  
+}
   //Code Here
 
 
@@ -42,7 +51,9 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 
 var nums = [1,2,3,6,22,98,45,23,22,12];
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
-
+function evenFinder(nums) {
+  return nums.map((x) => x%2 >0? nums.pop() : "");
+}
   //Code Here
 
 
@@ -53,7 +64,10 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 //Write a function called divider that is given one argument, numbersArray.
 //Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray) and the second item in the Array being the odds array (all the odd values from numbersArray).
 
+function divider(numbersArray) {
 
+
+}
 
   //Code Here
 
