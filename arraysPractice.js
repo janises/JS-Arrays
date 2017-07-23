@@ -92,7 +92,10 @@ var getRandomArbitrary = function() {
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
+function finder(array) {
 
+
+}
   //Code Here
 
 
@@ -102,7 +105,9 @@ var getRandomArbitrary = function() {
 
 var str = 'this is my sentence';
 //Write a function called reverse that takes a given str as it's only argument and returns that string after it's been reversed
-
+function reverse(str) {
+  return str.split("").reverse().join("");
+}
   //Code Here
 
 
@@ -124,8 +129,21 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
   In both the removeItem function and the addItem function, you will also need to check for valid aurguments. Specrunner will try to call your functions without passing in valid aurguments. When this happens, you will need to respond by returning an empty array.
 */
-
+function removeItem(list, item){
+  for(var i = 0; i < list.length; i++) {
+    if(list[i] === item) {
+      list.splice(i, 1);
+    }
+  }
+  return list;
+}
   //Code Here
+function addItem(list, item){
+  if(list.indexOf(item) === -1){
+    list.push(item);
+  }
+  return list;
+}
 
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
@@ -139,7 +157,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
   //Code Here
-
+function maker(){
+  var arr = [];
+  for(var i = 1; i <= 215; i++) {
+    arr.push(i);
+  }
+  return arr;
+}
 
 
 //Next Problem
@@ -150,6 +174,14 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
   //Code Here
+function addTen(numbers) {
+  var newArr = [];
+  for(var i = 0; i < numbers.length; i++) {
+    newArr.push(parseInt(numbers[i]) + 10);
+  }
+
+  return newArr;
+}
 
 
 
@@ -171,7 +203,9 @@ for(var i = 0; i < num2; i++){
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
-
+function longer(arr1, arr2) {
+  return arr1.length > arr2.length ? arr1 : arr2;
+}
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example).
@@ -180,7 +214,9 @@ for(var i = 0; i < num2; i++){
 */
 
   //Code Here
-
+function both(arr1, arr1) {
+  
+}
 
 
 
