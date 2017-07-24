@@ -54,13 +54,14 @@ function reversedLooper(letters) {
 
 var nums = [1,2,3,6,22,98,45,23,22,12];
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
-function evenFinder(nums) {
-  for(var i = 0; i < nums.length; i++) {
-    if(nums[i] % 2 !== 0) {
-      nums.splice(i, 1);
+function evenFinder(arr) {
+var evens = [];
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i] % 2 === 0) {
+      evens.push(arr[i]);
     }
   }
-  return nums;
+  return evens;
 }
   //Code Here
 
@@ -70,12 +71,23 @@ function evenFinder(nums) {
 
 var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 //Write a function called divider that is given one argument, numbersArray.
-//Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray) and the second item in the Array being the odds array (all the odd values from numbersArray).
+//Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray)
+// and the second item in the Array being the odds array (all the odd values from numbersArray).
 
-// function divider(numbersArray) {
-//   var evens = evenFinder(numbersArray);
+function oddsFinder(arr) {
+var odds = [];
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i] % 2 !== 0) {
+      odds.push(arr[i]);
+    }
+  }
+  return odds;
+}
 
-// }
+function divider(arr) {
+  return [evenFinder(arr), oddsFinder(arr)];
+
+}
 
   //Code Here
 
@@ -87,14 +99,16 @@ var getRandomArbitrary = function() {
   return Math.floor(Math.random() * 30);
 };
 // var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
-//Above you're given a function that will return a random number between 0 and 30.  There is also a commented out array full of numbers to help you visualize what your function will be receiving.
+//Above you're given a function that will return a random number between 0 and 30.
+// There is also a commented out array full of numbers to help you visualize what your function will be receiving.
 
-// Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
+// Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary),
+// then loop through the array (that will be passed in as a parameter) to see if that random number is in the array.
+// If it is, return true, if it's not, return false
 
   //Code Here
 function finder(array) {
-
-
+return array.indexOf(getRandomArbitrary()) >= 0? true : false;
 }
   //Code Here
 
@@ -214,11 +228,15 @@ function longer(arr1, arr2) {
 */
 
   //Code Here
-function both(arr1, arr1) {
-  
+function both(arr1, arr2) {
+  var newArr = [];
+  for(var i = 0; i < arr2.length; i++) {
+    if(arr1.includes(arr2[i])) {
+      newArr.push(arr2[i]);
+    }
+  }
+  return newArr;
 }
-
-
 
 //NEXT PROBLEM
 
@@ -254,16 +272,26 @@ var colt = {
 /*Above you're given an empty array with four objects. Fill the devMountainEmployees
 array with those four objects. After that console.log the length of the Array and make
 sure that it's equal to 4. */
-
+devMountainEmployees = [tyler, cahlan, ryan, colt];
+console.log(devMountainEmployees.length);
   //Code Here
 
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
+  function remove(arr) {
+    for(var i = 0; i < devMountainEmployees.length; i++) {
+      for(var prop in devMountainEmployees[i]) {
+        if (devMountainEmployees[i]["name"] === "Cahlan") {
+          devMountainEmployees.splice(i, 1);
+        }
+      }
+    }
+    return devMountainEmployees;
+  }
 
-
-
+  remove(devMountainEmployees);
 
 //NEXT PROBLEM
 
@@ -272,7 +300,7 @@ Loop through your devMountainEmployees until you find cahlan, then remove him fr
 of Data is to have an Array full of objects. */
 
 //Create an empty array called users.
-
+var users = [];
   //Code Here
 
 /*Now add three user objects to your users array. Each user object should contain the
@@ -287,7 +315,13 @@ var user1 = {
 };
 
 //Your Code Here
-
+users = [user1, {name: 'Bob Smith',
+email: 'bobsmith@gmail.com',
+password: 'iLoveAngular',
+username: 'angular3'}, {name: 'John Smith',
+email: 'jsmith@gmail.com',
+password: 'nodejs',
+username: 'jsnode'}];
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
 and those objects contain properties about the specific person you follow.*/
@@ -295,7 +329,18 @@ and those objects contain properties about the specific person you follow.*/
 /*Now let's say that Tyler decided to delete his account. Loop through your array of
 objects until you find Tyler's account (use tylermcginnis33@gmail.com to find him).
 Once you find the particular index he's located in, delete him from the array.*/
+function deleteAccount(arr){
+  for(var i = 0; i < arr.length; i++) {
+    for(var prop in arr[i]) {
+      if(arr[i].email === "tylermcginnis33@gmail.com") {
+        arr.splice(i, 1);
+      }
+    }
+  }
+  return users;
+}
 
+deleteAccount(users);
   //Code Here
 
 //The activity we just did is very much how data works in 'the real world'.
